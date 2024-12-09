@@ -20,11 +20,11 @@ const Header1 = () => {
                 </li>
                 <span className="h-[14px] w-px bg-gray-400" />
                 <li>
-                  <Link href="#">Join Us</Link>
+                  <Link href="joinus">Join Us</Link>
                 </li>
                 <span className="h-[14px] w-px bg-gray-400" />
                 <li>
-                  <Link href="#">Sign In</Link>
+                  <Link href="login">Sign In</Link>
                 </li>
               </ul>
             </nav>

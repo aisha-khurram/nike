@@ -27,7 +27,7 @@ export default function Home() {
       <main>
       
       <Link href="/products" className="...">
-        Shop Now
+        Shop
       </Link>
     </main>
       

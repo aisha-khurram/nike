@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface CartItem {
   id: number;
@@ -94,9 +95,9 @@ export default function Cart() {
             <h2 className="text-xl font-medium">Total Amount:</h2>
             <p className="text-xl font-medium">₹ {totalAmount.toLocaleString()}</p>
           </div>
-          <button className="w-full bg-black text-white py-3 rounded-full hover:bg-gray-800 transition-colors mt-4">
+        <Link href="/checkout">  <button className="w-full bg-black text-white py-3 rounded-full hover:bg-gray-800 transition-colors mt-4">
             Proceed to Checkout
-          </button>
+          </button></Link>
         </div>
       )}
     </div>

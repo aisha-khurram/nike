@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { CiHeart, CiSearch, CiShoppingCart } from 'react-icons/ci'
+import Link from 'next/link'
 
 export default function Header2() {
   return (
@@ -19,7 +20,7 @@ export default function Header2() {
                 <a href="#" className='text-slate-600 font-bold text-base hover:text-black'>Men</a>
                 <a href="#" className='text-slate-600 font-bold text-base hover:text-black'>Women</a>
                 <a href="#" className='text-slate-600 font-bold text-base hover:text-black'>Kids</a>
-                <a href="#" className='text-slate-600 font-bold text-base hover:text-black'>Sale</a>
+                <Link href="/products" className='text-slate-600 font-bold text-base hover:text-black'>Sale</Link>
                 <a href="#" className='text-slate-600 font-bold text-base hover:text-black'>SNKRS</a>
             </nav>
             <div className='flex items-center space x-6'>
@@ -31,7 +32,7 @@ export default function Header2() {
 
                 </div>
                 <CiHeart className="text-xl mt-2 rounded-sm"/>
-                <CiShoppingCart className='text-xl mt-2 rounded-sm' />
+              <Link href="/cart">  <CiShoppingCart className='text-xl mt-2 rounded-sm' /></Link>
         </div>
       
     </div>
