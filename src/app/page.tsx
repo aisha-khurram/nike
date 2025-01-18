@@ -10,6 +10,7 @@ import GearUp from './components/Gearup'
 import Dmiss from './components/Dmiss'
 import Essentials from './components/Essentials'
 import Tags from './components/Tags'
+import BreadCrumb from './components/BreadCrumb'
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <Dmiss/>
       <Essentials/>
       <Tags/>
+      <BreadCrumb/>
       <Footer/>
       <main>
       
