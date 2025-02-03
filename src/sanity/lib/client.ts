@@ -1,11 +1,40 @@
-import { createClient, SanityClient } from 'next-sanity'
-
-import { apiVersion, dataset, projectId } from '../env'
+import { createClient } from 'next-sanity';
+import { apiVersion } from '../env';
 
 export const client = createClient({
-  projectId: "NEXT_PUBLIC_SANITY_PROJECT_ID",
-  dataset: "product",
-  apiVersion,
-  useCdn: true,
-  token: "skp35OrUBMRTOLcmwUA80qUhd6DnwF2P6sxRZrsBedoXuCn8x2eL6J5KknyysL4yF7owdeIL7yaMAKcpRvuxcAYLF8eiq3d8pwwAHrYIEbDcT9cuJRzIyejWR1eP2gfEj66Wz1bf78ehJSK6YgyOkjIoAGrj5rtuSciySDVEI2ttudqW3bBm" // Set to false if statically generating pages, using ISR or tag-based revalidation
-})
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, // Use environment variable
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production', // Use environment variable
+  apiVersion: apiVersion || '2023-05-03', // Use the latest API version
+  useCdn: true, // Enable CDN for faster responses
+  token: process.env.SANITY_API_TOKEN, // Use environment variable for token
+});
+
+
+
+// Fetch products from Sanity
+export const fetchProductsFromSanity = async () => {
+  const query = `*[_type == "product"]{
+    _id,
+    productName,
+    category,
+    price,
+    inventory,
+    colors,
+    status,
+    slug,
+    image {
+      asset -> {
+        url
+      }
+    },
+    description
+  }`;
+
+  try {
+    const products = await client.fetch(query);
+    return products;
+  } catch (error) {
+    console.error('Error fetching products from Sanity:', error);
+    throw error; // Re-throw the error to handle it in the calling function
+  }
+};

@@ -47,5 +47,15 @@ export const productSchema = {
       title: 'Description',
       type: 'text',
     },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'productName', // or any other field to generate the slug from
+        maxLength: 200,
+      },
+      validation: (Rule: { required: () => any; }) => Rule.required(), // Ensure the slug is required
+    }
   ],
 }

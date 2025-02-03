@@ -1,3 +1,4 @@
+import { CartProvider } from '@/context/CartContext';
 import './globals.css';
 import type { Metadata } from 'next';
 
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+       <CartProvider> {children} </CartProvider>
       </body>
     </html>
   );

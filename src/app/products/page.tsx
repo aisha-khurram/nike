@@ -1,19 +1,15 @@
-// app/products/page.tsx
-import React from 'react';
-
-import Header1 from '../components/Header1';
-import Header2 from '../components/Header2';
-import Header3 from '../components/Header3';
-import Sidebar from '../components/Sidebar';
-import ProductGrid from '../components/ProductGrid';
-import RelatedTags from '../components/RelatedTags';
-import Footer from '../components/Footer';
-import { fetchProductsFromSanity } from '@/lib/sanity';
+import { fetchProductsFromSanity } from "@/sanity/lib/client";
+import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
+import Header1 from "../components/Header1";
+import Header2 from "../components/Header2";
+import Header3 from "../components/Header3";
+import ProductGrid from "../components/ProductGrid";
+import RelatedTags from "../components/RelatedTags";
 
 export default async function ProductPage() {
-  
-  // Fetch products from Sanity
   const products = await fetchProductsFromSanity();
+  console.log('Products in ProductPage:', products); // Log the fetched data
 
   return (
     <div>
@@ -25,7 +21,7 @@ export default async function ProductPage() {
         <div className="flex">
           <Sidebar />
           {/* Pass the fetched products to the ProductGrid component */}
-          <ProductGrid product={products} />
+          <ProductGrid />
         </div>
       </main>
 
