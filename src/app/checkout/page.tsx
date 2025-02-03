@@ -9,7 +9,7 @@ import Header2 from "@/app/components/Header2"
 import Footer from "@/app/components/Footer"
 import Link from "next/link"
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!)
 
 function OrderConfirmationContent() {
   const [status, setStatus] = useState<"success" | "processing" | "error" | null>(null)
