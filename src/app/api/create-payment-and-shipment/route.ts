@@ -3,7 +3,7 @@ import Stripe from "stripe"
 import { createShipment } from "@/lib/shipEngine"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-01-27.acacia",
+  apiVersion: "2025-01-27.acacia" as const,
 })
 
 export async function POST(request: Request) {

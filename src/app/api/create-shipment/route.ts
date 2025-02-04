@@ -5,7 +5,6 @@ export async function POST(request: NextRequest) {
   try {
     const { shippingInfo, cartItems } = await request.json()
 
-    // Create shipment using ShipEngine
     const shipment = await createShipment(shippingInfo, cartItems)
 
     return NextResponse.json({
